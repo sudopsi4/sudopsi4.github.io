@@ -8,7 +8,7 @@ function buildGrid() {
 
   const colsAndRows = calculateGridItemsAndRows(40,40,5,20)
   const words = ["ABOUT", "BLOG", "YOUTUBE"];
-  const title = "TESSELWOLF";
+  const title = "ENGIMA";
 
   const cols = colsAndRows['cols'];
   const rows = colsAndRows['rows'];
