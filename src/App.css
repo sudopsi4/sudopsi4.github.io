@@ -6,6 +6,7 @@
 body{
   background-color: #dcd5c4  ;
   font-family: 'imitation-game';
+  user-select: none;
 }
 
 .App {
@@ -24,7 +25,7 @@ body{
 .grid-item {
   padding: 10px;
   text-align: center;
-  color: #8e7a75ca;
+  color: #0000004c;
 }
 
 .grid-item:hover{
@@ -34,27 +35,32 @@ body{
 .grid-item-title{
   padding: 10px;
   text-align: center;
-  color:#1f1f1e;
+  color:#2c2b28;
 }
 
 @keyframes clueLoop {
   0% {
-    color: #8e7a75ca;
+    color: #0000004c;
+  }
+  25% {
+    color: #ffffff;
   }
   50% {
-    color: #ffffffca;
+    color: #0000004c;
   }
-  100% {
-    color: #8e7a75ca;
+  100%{
+    color: #0000004c;
   }
 }
 
 .grid-item-clue{
   padding: 10px;
   text-align: center;
-  color:#8e7a75ca;
-  animation: clueLoop 4s infinite;
+  color:#0000004c;
+  animation: clueLoop 8s infinite;
+  cursor: pointer;
 }
+
 
 
 

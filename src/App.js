@@ -7,7 +7,7 @@ import React from "react";
 function buildGrid() {
 
   const colsAndRows = calculateGridItemsAndRows(40,40,5,20)
-  const words = ["ABOUT", "BLOG", "YOUTUBE"];
+  const words = ["ABOUT", "BLOG", "YOUTUBE", "TWITTER", "GRAM", "GITHUB"];
   const title = "ENGIMA";
 
   const cols = colsAndRows['cols'];
@@ -22,6 +22,7 @@ function buildGrid() {
     grid[centreRow][leftIndent + i] = <GridBox letter={title[i]} type="title"/>;
   }
 
+  let wi = 0;
   for (const w of words) {
     let put = 0;
     while (put === 0) {
@@ -34,12 +35,12 @@ function buildGrid() {
       let validPlacement = true;
       for (let i = 0; i < w.length; i++) {
         if (isVertical) {
-          if (grid[r + i][c] !== 0 && grid[r + i][c] !== w[i]) {
+          if (grid[r + i][c] !== 0 && grid[r + i][c]['value'] !== w[i]) {
             validPlacement = false;
             break;
           }
         } else {
-          if (grid[r][c + i] !== 0 && grid[r][c + i] !== w[i]) {
+          if (grid[r][c + i] !== 0 && grid[r][c + i]['value'] !== w[i]) {
             validPlacement = false;
             break;
           }
@@ -49,12 +50,13 @@ function buildGrid() {
       if (validPlacement) {
         for (let i = 0; i < w.length; i++) {
           if (isVertical) {
-            grid[r + i][c] = w[i];
+            grid[r + i][c] = {'value' : w[i], 'wordNumber' : wi};
           } else {
-            grid[r][c + i] = w[i];
+            grid[r][c + i] = {'value' : w[i], 'wordNumber' : wi};
           }
         }
         put = 1;
+        wi++;
       }
     }
   }
@@ -65,7 +67,7 @@ function buildGrid() {
         grid[r][c] = <GridBox/>
       }
       if(!React.isValidElement(grid[r][c])){
-        grid[r][c] = <GridBox letter={grid[r][c]} type="clue"/>
+        grid[r][c] = <GridBox letter={grid[r][c]['value']} type="clue" wordNumber={grid[r][c]['wordNumber']}/>
       }
     }
   }
