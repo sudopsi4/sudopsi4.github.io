@@ -28,13 +28,32 @@ body{
 }
 
 .grid-item:hover{
-  color: #1f1f1e;
+  color: #ffffff;
 }
 
 .grid-item-title{
   padding: 10px;
   text-align: center;
   color:#1f1f1e;
+}
+
+@keyframes clueLoop {
+  0% {
+    color: #8e7a75ca;
+  }
+  50% {
+    color: #ffffffca;
+  }
+  100% {
+    color: #8e7a75ca;
+  }
+}
+
+.grid-item-clue{
+  padding: 10px;
+  text-align: center;
+  color:#8e7a75ca;
+  animation: clueLoop 4s infinite;
 }
 
 

@@ -2,7 +2,7 @@ import { randomLetter } from "../util";
 
 function GridBox(props) {
     return (
-        <div key={props.index} className={props.type==='title'?"grid-item-title":"grid-item"} >
+        <div key={props.index} className={props.type==='title'?"grid-item-title":(props.type==='clue'?"grid-item-clue":"grid-item")} >
             {props.letter?props.letter:randomLetter()}
         </div>
     );
