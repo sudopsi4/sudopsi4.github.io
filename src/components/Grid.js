@@ -10,10 +10,10 @@ export function buildGrid(words, title) {
   const rows = colsAndRows["rows"];
 
   if((cols-title.length)%2!==0){
-    title = title+'_';
+    title = title+'~';
   }
 
-  let grid = Array.from({ length: rows }, () => new Array(cols).fill(0));
+  let grid = Array.from({ length: rows }, () => new Array(cols).fill({value : '', type : 'empty'}));
 
   const centreRow = Math.floor(rows / 2);
   const leftIndent = Math.floor((cols - title.length) / 2);
@@ -37,12 +37,12 @@ export function buildGrid(words, title) {
       for (let i = 0; i < w.length; i++) {
 
         if (isVertical) {
-          if (grid[r + i][c] !== 0 && grid[r + i][c]["value"] !== w[i]) {
+          if (grid[r + i][c]['type'] !== 'empty' && grid[r + i][c]["value"] !== w[i]) {
             validPlacement = false;
             break;
           }
         } else {
-          if (grid[r][c + i] !== 0 && grid[r][c + i]["value"] !== w[i]) {
+          if (grid[r][c + i]['type'] !== 'empty' && grid[r][c + i]["value"] !== w[i]) {
             validPlacement = false;
             break;
           }
@@ -52,9 +52,9 @@ export function buildGrid(words, title) {
       if (validPlacement) {
         for (let i = 0; i < w.length; i++) {
           if (isVertical) {
-            grid[r + i][c] = { value: w[i], wordNumber: wi, type : 'clue' };
+            grid[r + i][c] = { value: w[i], wordNumber: wi, type : (grid[r + i][c].type==='title'?'title-clue':'clue') };
           } else {
-            grid[r][c + i] = { value: w[i], wordNumber: wi, type : 'clue'};
+            grid[r][c + i] = { value: w[i], wordNumber: wi, type : (grid[r][c + i].type==='title'?'title-clue':'clue')};
           }
         }
         put = 1;
@@ -65,7 +65,7 @@ export function buildGrid(words, title) {
 
   for (let r = 0; r < grid.length; r++) {
     for (let c = 0; c < grid[r].length; c++) {
-      if (grid[r][c] === 0) {
+      if (grid[r][c]['type'] === 'empty') {
         grid[r][c] = { value: randomLetter(), type: "random" };
       }
     }
@@ -74,45 +74,59 @@ export function buildGrid(words, title) {
   return grid;
 }
 
-export const GridStateComponent = (props) => {
+export class GridStateComponent extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {highlightedIndex: null,show : false,selectedIndex : null};
+      }
 
-    const grid = props.grid;
+       handleMouseEnter = (wordIndex) => {
+        this.setState({highlightedIndex:wordIndex});
+      };
+    
+       handleMouseLeave = () => {
+        this.setState({highlightedIndex:null});
+      };
+    
+       handleClick = (wordIndex) => {
+        this.setState({selectedIndex:wordIndex,show:true});
+      };
 
-  const [highlightedIndex, setHighlightedIndex] = React.useState(null);
+      closeOverlay = () => {
+        this.setState({selectedIndex:null,show:false});
+      }
+    
 
-  const handleMouseEnter = (wordIndex) => {
-    console.log(highlightedIndex)
-    setHighlightedIndex(wordIndex);
-  };
+    render() {
+        const grid = this.props.grid;
+        const words = this.props.words;
 
-  const handleMouseLeave = () => {
-    console.log(highlightedIndex)
-    setHighlightedIndex(null);
-  };
+        const newgrid = grid.map((row, r) => (
+            [
+              row.map((obj, c) => (
+                <GridBox
+                letter={obj.value}
+                type={obj.type}
+                wordNumber={obj.type==='clue' || obj.type==='title-clue'?obj.wordNumber:-1}
+                highlightedIndex={this.state.highlightedIndex}
+                handleMouseEnter={this.handleMouseEnter}
+                handleMouseLeave={this.handleMouseLeave}
+                handleClick={this.handleClick}
+        
+                />
+              ))
+              ]
+          ))
 
-  const handleClick = (wordIndex) => {
-    console.log(highlightedIndex)
-    // setHighlightedIndex((prevIndex) =>
-    //   prevIndex === wordIndex ? null : wordIndex
-    // );
-  };
+        return(
+            <Grid
+  boxes={newgrid} 
+  words={words}
+  selectedIndex={this.state.selectedIndex}
+  show={this.state.show}
+  closeOverlayCallback={this.closeOverlay}
+  />
+        );
+    }
+}
 
-const newgrid = grid.map((row, r) => (
-    [
-      row.map((obj, c) => (
-        <GridBox
-        letter={obj.value}
-        type={obj.type}
-        wordNumber={obj.type==='clue'?obj.wordNumber:-1}
-        highlightedIndex={highlightedIndex}
-        handleMouseEnter={handleMouseEnter}
-        handleMouseLeave={handleMouseLeave}
-        handleClick={handleClick}
-
-        />
-      ))
-      ]
-  ))
-
-  return <Grid boxes={newgrid} />;
-};

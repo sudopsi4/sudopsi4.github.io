@@ -1,4 +1,5 @@
 import { randomLetter } from "../util";
+import { OverlayPage } from "./OverlayPage";
 
 function GridBox(props) {
     return (
@@ -7,12 +8,14 @@ function GridBox(props) {
             className={
                 props.highlightedIndex === props.wordNumber?'highlighted':
                 (props.type==='title'?'grid-item-title':
-                (props.type==='clue'?'grid-item-clue':'grid-item'))
+                (props.type==='clue'?'grid-item-clue':(
+                    props.type==='title-clue'?'grid-item-title-clue':'grid-item'
+                )))
             }
-            style={{animationDelay: props.type==='clue'?(props.wordNumber*3).toString()+"s":null}}
-            onMouseEnter={props.type==='clue'?() => props.handleMouseEnter(props.wordNumber):null}
-            onMouseLeave={props.type==='clue'?props.handleMouseLeave:null}
-            onClick={props.type==='clue'?() => props.handleClick(props.wordNumber):null}
+            style={{animationDelay: props.type==='clue' || props.type==='title-clue'?(props.wordNumber*3).toString()+"s":null}}
+            onMouseEnter={props.type==='clue' || props.type==='title-clue'?() => props.handleMouseEnter(props.wordNumber):null}
+            onMouseLeave={props.type==='clue' || props.type==='title-clue'?props.handleMouseLeave:null}
+            onClick={props.type==='clue' || props.type==='title-clue'?() => props.handleClick(props.wordNumber):null}
             >
             {props.letter}
         </div>
@@ -21,9 +24,15 @@ function GridBox(props) {
 
 const Grid = (props) => {
     return(
-        <div className="grid-container">
+        [<div className="grid-container">
             {props.boxes}
-        </div>
+        </div>,
+        <OverlayPage
+        title={props.words[props.selectedIndex]}
+        show={props.show}
+        closeOverlayCallback={props.closeOverlayCallback}
+        />    
+    ]
     )
 } 
 
