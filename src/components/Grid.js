@@ -9,6 +9,10 @@ export function buildGrid(words, title) {
   const cols = colsAndRows["cols"];
   const rows = colsAndRows["rows"];
 
+  if((cols-title.length)%2!==0){
+    title = title+'_';
+  }
+
   let grid = Array.from({ length: rows }, () => new Array(cols).fill(0));
 
   const centreRow = Math.floor(rows / 2);
