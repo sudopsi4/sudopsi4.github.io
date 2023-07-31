@@ -29,7 +29,7 @@ body{
 }
 
 .grid-item:hover{
-  color: #ffffff;
+  color: #00000079;
 }
 
 .grid-item-title{
@@ -61,6 +61,12 @@ body{
   cursor: pointer;
 }
 
+.highlighted{
+  padding: 10px;
+  text-align: center;
+  color:#ffffff;
+  cursor: pointer;
+}
 
 
 
