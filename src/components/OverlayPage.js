@@ -23,6 +23,15 @@ export const OverlayPage = (props) =>{
             {contentMap[props.title].content}
         </div>
         <div className="action-footer">
+            {contentMap[props.title].action===undefined?null:<div 
+            className="op-action-button"
+            onClick={() => {
+                var win = window.open(contentMap[props.title].link, '_blank');
+                win.focus();
+            }}
+            >
+                {contentMap[props.title].action}
+            </div>}
         </div>
         </div>
     </div>:null

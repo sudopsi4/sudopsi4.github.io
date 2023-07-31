@@ -1,7 +1,9 @@
-import hangingImg from "../assets/hanging.gif";
-import library from "../assets/library.gif";
-import garden from "../assets/garden.webp";
-import house from "../assets/house.gif"
+import suitcase from "../assets/suitcase.png";
+import camera from "../assets/camera.png";
+import typewriter from "../assets/typewriter.png";
+import modular from "../assets/modular1.png";
+import raven from "../assets/raven.png";
+import stack from "../assets/stack.png";
 
 export const words = [];
 const titles = [
@@ -19,7 +21,7 @@ export const title = titles[Math.floor(Math.random() * titles.length)];
 
 export const contentMap = {
   'ABOUT': {
-    image : hangingImg,
+    image : suitcase,
     content : (
         `Hello! I am a computer science researcher with a keen interest in exploring patterns across diverse fields like mathematics, music, and philosophy.
         Delving into the intricacies of these subjects, seeking connections and insights that enrich our understanding of the world.
@@ -29,27 +31,44 @@ export const contentMap = {
     )
   },
   'BLOG': {
-    image : house,
+    image : typewriter,
     content : (
         `Here is the link to my blog if you are interested. This is based on X (Former Twitter) and my username is @RecurrentRabbit`
-    )
+    ),
+    action : 'To Blog',
+    link: 'https://the-nutshell.super.site/'
   },
   'YOUTUBE': {
-    image : garden,
+    image : camera,
     content : (
         `For Intriguing content on beauty of patterns, subscribe 'Abstrakt' on YouTube.`
-    )
+    ),
+    action : 'To Channel',
+    link : 'https://www.youtube.com/channel/UCAERp_ed75UPSy0W_Yu3J0w'
   },
-  'GRAM': {
-    image : hangingImg,
+  'X': {
+    image : raven,
     content : (
-        `Sorry no gramming for now :(`
-    )
+        `Find me on X (Former Twitter), @RecurrentRabbit`
+    ),
+    action : 'To X',
+    link : 'https://twitter.com/RecurrentRabbit'
   },
   'GITHUB': {
-    image : library,
+    image : modular,
     content: (
         `Have a look at my CompSci projects.`
-    )
+    ),
+    action : 'To Github',
+    link : 'https://github.com/abhidaberao'
   },
+  'STACK' : {
+    image : stack,
+    content : (
+      `These pages are for demo purposes.
+      There is no sense in making separate pages for social link.`
+    ),
+    action : "To Stack",
+    link : 'https://stackexchange.com/users/9906557/aether'
+  }
 };

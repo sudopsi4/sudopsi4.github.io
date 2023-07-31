@@ -31,6 +31,22 @@
     cursor: pointer;
 }
 
+.op-action-button{
+    background-color: whitesmoke;
+    margin: 40px;
+    padding: 10px;
+    border-radius: 10px;
+    float: right;
+}
+
+.op-action-button:hover{
+    background-color: white;
+}
+
+.op-action-button:active{
+    background-color: rgb(201, 201, 201);
+}
+
 .close-button:hover{
     color: rgba(0, 0, 0, 0.484);
 }
