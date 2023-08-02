@@ -1,6 +1,7 @@
 import "./OverlayPage.css";
 import {IoArrowBackCircleOutline} from 'react-icons/io5';
 import { contentMap } from "./PageContent";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export const OverlayPage = (props) =>{
 
@@ -14,7 +15,7 @@ export const OverlayPage = (props) =>{
                 }</div>
         </div>
         <div className="op-image-holder">
-            <img className="op-image" src={contentMap[props.title].image}/>
+            <LazyLoadImage className="op-image" src={contentMap[props.title].image} />
         </div>
         <div className="title">
             {props.title}
