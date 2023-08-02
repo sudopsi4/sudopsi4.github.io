@@ -83,6 +83,7 @@ html,body{
   color:#0000004c;
   animation: clueLoop 8s infinite;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .grid-item-title-clue{
@@ -91,6 +92,7 @@ html,body{
   color:#2c2b28;
   animation: clueLoopTitle 8s infinite;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .highlighted{
@@ -98,6 +100,7 @@ html,body{
   text-align: center;
   color:#ffffff;
   cursor: pointer;
+  text-decoration: none;
 }
 
 

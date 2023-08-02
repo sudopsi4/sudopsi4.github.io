@@ -9,13 +9,14 @@ export const words = [];
 const titles = [
   "HELLO",
   "HOLA",
-  "BONJOUR",
+  "SALUT",
   "HALLO",
   "CIAO",
   "HEJ",
   "PRIVET",
   "NIHAO",
   "NAMASTE",
+  "DOHMOH"
 ];
 export const title = titles[Math.floor(Math.random() * titles.length)];
 

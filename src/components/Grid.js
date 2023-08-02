@@ -1,6 +1,7 @@
 import { Grid, GridBox } from "./GridComponents";
 import { calculateGridItemsAndRows, randomLetter } from "../util";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export function buildGrid(words, title) {
   const colsAndRows = calculateGridItemsAndRows(40, 40, 5, 20);
@@ -52,9 +53,9 @@ export function buildGrid(words, title) {
       if (validPlacement) {
         for (let i = 0; i < w.length; i++) {
           if (isVertical) {
-            grid[r + i][c] = { value: w[i], wordNumber: wi, type : (grid[r + i][c].type==='title'?'title-clue':'clue') };
+            grid[r + i][c] = { value: w[i], wordNumber: wi, word : w,type : (grid[r + i][c].type==='title'?'title-clue':'clue') };
           } else {
-            grid[r][c + i] = { value: w[i], wordNumber: wi, type : (grid[r][c + i].type==='title'?'title-clue':'clue')};
+            grid[r][c + i] = { value: w[i], wordNumber: wi, word : w,type : (grid[r][c + i].type==='title'?'title-clue':'clue')};
           }
         }
         put = 1;
@@ -89,11 +90,11 @@ export class GridStateComponent extends React.Component{
       };
     
        handleClick = (wordIndex) => {
-        this.setState({selectedIndex:wordIndex,show:true});
+        this.setState({highlightedIndex:null});
       };
 
       closeOverlay = () => {
-        this.setState({selectedIndex:null,show:false});
+        this.setState({highlightedIndex:null,show:false});
       }
     
 
@@ -108,6 +109,7 @@ export class GridStateComponent extends React.Component{
                 letter={obj.value}
                 type={obj.type}
                 wordNumber={obj.type==='clue' || obj.type==='title-clue'?obj.wordNumber:-1}
+                word={obj.type==='clue' || obj.type==='title-clue'?obj.word:null}
                 highlightedIndex={this.state.highlightedIndex}
                 handleMouseEnter={this.handleMouseEnter}
                 handleMouseLeave={this.handleMouseLeave}
