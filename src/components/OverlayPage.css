@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'bookerly';
+    src: url('../font/bookerly.ttf');
+  }
+  @font-face {
+    font-family: 'chronicle';
+    src: url('../font/chronicle.otf');
+  }
+
 .overlay-page{
     position: fixed;
     top: 0;
@@ -9,7 +18,10 @@
     justify-content: center;
     align-items: center;
     z-index: 999;
+    overflow-y: scroll;
   }
+
+
 
 .container1{
     padding: 10vw;
@@ -19,12 +31,12 @@
 }
 
 .action-header{
-    display: block;
+    display: flex;
     height: 2vh;
 }
 
 .close-button{
-    float: lefy;
+    float: left;
     border:none;
     height: 3rem;
     width: 3rem;
@@ -56,12 +68,10 @@
     color: rgba(0, 0, 0, 0.484);
 }
 
-.image-holder{
-    display: block;
-}
+
 
 .op-image{
-    width: 15rem;
+    height: 10rem;
 }
 
 .title{
@@ -70,12 +80,16 @@
     letter-spacing: 20px;
     margin-bottom: 2rem;
     margin-top: 2rem;
-    color: #0000004c;
+    color: rgba(0, 0, 0, 0.541);
 }
 
 .content{
     display: block;
     margin: auto;
+    font-family: bookerly;
+    max-width: 700px;
+    text-align: left;
+    font-size: 12pt;
 }
 
 .action-footer{

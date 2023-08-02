@@ -2,6 +2,8 @@ import { Grid, GridBox } from "./GridComponents";
 import { calculateGridItemsAndRows, randomLetter } from "../util";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import tessel from "../assets/tessel.png";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export function buildGrid(words, title) {
   const colsAndRows = calculateGridItemsAndRows(40, 40, 5, 20);
@@ -18,6 +20,7 @@ export function buildGrid(words, title) {
 
   const centreRow = Math.floor(rows / 2);
   const leftIndent = Math.floor((cols - title.length) / 2);
+
 
   for (let i = 0; i < title.length; i++) {
     grid[centreRow][leftIndent + i] = { value: title[i], type: "title" };

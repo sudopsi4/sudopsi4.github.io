@@ -9,6 +9,8 @@ html,body{
   user-select: none;
   padding: 0;
   margin: 0;
+  overflow: hidden;
+
 }
 
 .App {
@@ -35,6 +37,7 @@ html,body{
   text-align: center;
   color: #0000004c;
 }
+
 
 .grid-item:hover{
   color: #00000079;

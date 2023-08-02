@@ -4,6 +4,8 @@ import typewriter from "../assets/typewriter.png";
 import modular from "../assets/modular1.png";
 import raven from "../assets/raven.png";
 import stack from "../assets/stack.png";
+import tessel from "../assets/tessel.png"
+import tree from "../assets/tree.webp"
 
 export const words = [];
 const titles = [
@@ -22,13 +24,14 @@ export const title = titles[Math.floor(Math.random() * titles.length)];
 
 export const contentMap = {
   'ABOUT': {
-    image : suitcase,
+    image : tree,
     content : (
-        `Hello! I am a computer science researcher with a keen interest in exploring patterns across diverse fields like mathematics, music, and philosophy.
-        Delving into the intricacies of these subjects, seeking connections and insights that enrich our understanding of the world.
-        Currently I run a YouTube Channel and Twitter Blog where I share captivating content that showcases the beauty of patterns and their relevance in our lives.
-        Working on deep learning projects, Exploring the potential of this technology to further unravel the patterns.
-        `
+      <div>
+        <p>Hello! I am a computer science researcher with a keen interest in exploring patterns across diverse fields like mathematics, music, and philosophy.</p>
+        <p>Delving into the intricacies of these subjects, seeking connections and insights that enrich our understanding of the world.</p>
+        <p>Currently I run a YouTube Channel and Twitter Blog where I share captivating content that showcases the beauty of patterns and their relevance in our lives.</p>
+        </div>
+      
     )
   },
   'BLOG': {
@@ -55,7 +58,7 @@ export const contentMap = {
     action : 'To X',
     link : 'https://twitter.com/RecurrentRabbit'
   },
-  'GITHUB': {
+  'PROJECTS': {
     image : modular,
     content: (
         `Have a look at my CompSci projects.`

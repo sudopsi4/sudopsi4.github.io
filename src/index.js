@@ -6,7 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, HashRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-document.body.style.overflow = "hidden"
 root.render(
   <React.StrictMode>
     <BrowserRouter>

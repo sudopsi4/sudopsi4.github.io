@@ -15,9 +15,8 @@ export const OverlayPage = (props) =>{
                 /></Link>
                 }</div>
         </div>
-        <div className="op-image-holder">
-            <LazyLoadImage className="op-image" src={contentMap[props.title].image} />
-        </div>
+        <LazyLoadImage className="op-image" src={contentMap[props.title].image} />
+
         <div className="title">
             {props.title}
         </div>
