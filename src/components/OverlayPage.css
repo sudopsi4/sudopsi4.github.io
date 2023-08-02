@@ -2,10 +2,6 @@
     font-family: 'bookerly';
     src: url('../font/bookerly.ttf');
   }
-  @font-face {
-    font-family: 'chronicle';
-    src: url('../font/chronicle.otf');
-  }
 
 .overlay-page{
     position: fixed;

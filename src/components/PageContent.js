@@ -1,10 +1,8 @@
-import suitcase from "../assets/suitcase.png";
 import camera from "../assets/camera.png";
 import typewriter from "../assets/typewriter.png";
 import modular from "../assets/modular1.png";
 import raven from "../assets/raven.png";
 import stack from "../assets/stack.png";
-import tessel from "../assets/tessel.png"
 import tree from "../assets/tree.webp"
 
 export const words = [];
