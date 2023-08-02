@@ -2,6 +2,10 @@
     font-family: 'bookerly';
     src: url('../font/bookerly.ttf');
   }
+  @font-face {
+    font-family: 'imitation';
+    src: url('../font/imitation.ttf');
+  }
 
 .overlay-page{
     position: fixed;
@@ -17,8 +21,13 @@
     overflow-y: scroll;
   }
 
+.social-links{
+    display: inline;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+}
 
-
+  
 .container1{
     padding: 10vw;
     justify-content: center;
@@ -46,9 +55,28 @@
 
 .op-action-button{
     background-color: whitesmoke;
-    margin: 40px;
     padding: 10px;
     border-radius: 10px;
+    width: fit-content;
+    font-family: imitation;
+    display: inline-block;
+    justify-content: center;
+    vertical-align: middle;
+    align-items: center;
+}
+
+.op-action-button-chip{
+    margin-right: 10px;
+}
+
+.button-image{
+    height: 20px;
+    display: inline;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.op-action-button-right{
     float: right;
 }
 
