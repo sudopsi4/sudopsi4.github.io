@@ -4,7 +4,7 @@
 }
 
 html,body{
-  background-color: #dcd5c4  ;
+  background-color: #212A3E  ;
   font-family: 'imitation-game';
   user-select: none;
   padding: 0;
@@ -35,55 +35,56 @@ html,body{
 .grid-item {
   padding: 10px;
   text-align: center;
-  color: #0000004c;
+  color: #3948679b;
 }
 
 
 .grid-item:hover{
-  color: #00000079;
+  color: #212A3E;
 }
 
 .grid-item-title{
   padding: 10px;
   text-align: center;
-  color:#2c2b28;
+  color:#7bccfc;
+  text-shadow: 0px 0px 15px #7bccfc;
 }
 
 @keyframes clueLoop {
   0% {
-    color: #0000004c;
+    color: #3948679b;
   }
   25% {
-    color: #ffffff;
+    color: #F1F6F9;
   }
   50% {
-    color: #0000004c;
+    color: #3948679b;
   }
   100%{
-    color: #0000004c;
+    color: #3948679b;
   }
 }
 @keyframes clueLoopTitle {
   0% {
-    color: #2c2b28;
+    color: #7bccfc;
   }
 
   25% {
-    color: #ffffff;
+    color: #F1F6F9;
   }
 
   50% {
-    color: #2c2b28;
+    color: #7bccfc;
   }
   100%{
-    color: #2c2b28;
+    color: #7bccfc;
   }
 }
 
 .grid-item-clue{
   padding: 10px;
   text-align: center;
-  color:#0000004c;
+  color:#3948679b;
   animation: clueLoop 8s infinite;
   cursor: pointer;
   text-decoration: none;
@@ -92,7 +93,8 @@ html,body{
 .grid-item-title-clue{
   padding: 10px;
   text-align: center;
-  color:#2c2b28;
+  color:#7bccfc;
+  text-shadow: 0px 0px 15px #7bccfc;
   animation: clueLoopTitle 8s infinite;
   cursor: pointer;
   text-decoration: none;
@@ -101,7 +103,7 @@ html,body{
 .highlighted{
   padding: 10px;
   text-align: center;
-  color:#ffffff;
+  color:#F1F6F9;
   cursor: pointer;
   text-decoration: none;
 }

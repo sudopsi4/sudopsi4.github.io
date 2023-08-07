@@ -1,12 +1,15 @@
 import camera from "../assets/camera.png";
 import typewriter from "../assets/typewriter.png";
 import modular from "../assets/modular1.png";
-import raven from "../assets/raven.png";
+import tessel from "../assets/tessel2.png";
 import stack from "../assets/stackx.png";
 import tree from "../assets/tree.webp";
 import "./OverlayPage.css";
 import ytb from "../assets/ytb.png";
 import x from "../assets/x.png";
+import transmitter from "../assets/transmitter.png"
+import { TwitterTimelineEmbed, TwitterShareButton} from "react-twitter-embed";
+import XTimelineContainer from "./XTimelineContainer";
 
 const openLink = (link) => {
   var win = window.open(link, '_blank');
@@ -16,16 +19,7 @@ const openLink = (link) => {
 
 export const words = [];
 const titles = [
-  "HELLO",
-  "HOLA",
-  "SALUT",
-  "HALLO",
-  "CIAO",
-  "HEJ",
-  "PRIVET",
-  "NIHAO",
-  "NAMASTE",
-  "DOHMOH"
+  "HELLO"
 ];
 export const title = titles[Math.floor(Math.random() * titles.length)];
 
@@ -33,7 +27,7 @@ const socialLinks = [
   { label : '', link : 'https://twitter.com/thetesselwolf',image : x},
   { label : 'Youtube', link : 'https://www.youtube.com/channel/UCAERp_ed75UPSy0W_Yu3J0w', image : ytb},
   { label : 'Blog', link : 'https://the-nutshell.super.site/'},
-  { label : 'Stack', link : 'https://stackexchange.com/users/9906557/aether', image : stack}
+  { label : 'Stack Exchange', link : 'https://stackexchange.com/users/9906557/aether', image : stack}
 ]
 
 export const contentMap = {
@@ -41,8 +35,8 @@ export const contentMap = {
     image : tree,
     content : (
       <div>
-        <p>Dear Reader,<br/><br/>I am a Computer Science researcher interested in exploring patterns across diverse fields like mathematics, music, and philosophy.</p>
-        <p>If delving into the intricacies is excatly your muse, you'll find this place interesting. Currently I run a YouTube Channel and Blog where I share the kind of stuff you'd be interested in.</p>
+        <p>Dear Reader,<br/><br/>I am a CompSci researcher, interested in exploring patterns across diverse fields like mathematics, music, and philosophy.</p>
+        <p>If delving into the such intricacies is your muse, you'll find this place interesting. Currently I run a YouTube Channel and Blog where I share the kind of stuff you'd be interested in.</p>
         <br/><p>You can find me here:</p>
         <div className="social-links">
           {
@@ -58,12 +52,14 @@ export const contentMap = {
     )
   },
   'BLOG': {
-    image : typewriter,
+    image : transmitter,
     content : (
-        `Here is the link to my blog if you are interested. This is based on X (Former Twitter) and my username is @RecurrentRabbit`
+      <div>
+        This section is currently under work. 
+      </div>
     ),
     action : 'To Blog',
-    link: ''
+    link: 'https://the-nutshell.super.site/'
   },
   'CHANNEL': {
     image : camera,
@@ -82,7 +78,7 @@ export const contentMap = {
     link : 'https://github.com/abhidaberao'
   },
   'ART': {
-    image : modular,
+    image : tessel,
     content: (
         `Have a look at my CompSci projects.`
     ),
